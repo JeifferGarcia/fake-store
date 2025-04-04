@@ -1,19 +1,23 @@
-import Navbar from './components/Navbar';
-import Card from './components/Card';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from 'react-router-dom';
 
+import Home from './page/Home';
+import Products from './page/Products';
+import Discounts from './page/Discounts';
 
 function App() {
 
   return (
-    <>
-      <Navbar />
-      <Card
-        id="1"
-        title="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
-        src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-        description="Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday"
-      />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/products" element={<Products />}/>
+        <Route path="/discounts" element={<Discounts />}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
