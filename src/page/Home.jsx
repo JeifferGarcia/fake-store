@@ -10,20 +10,16 @@ function Home() {
   const { setDiscount, discount } = useDiscounts();
 
   useEffect(() => {
-    const getProduct = async () => {
+    const getProduct = () => {
       const id = Math.floor(Math.random() * 20) + 1;
       setIsLoading(true);
       const URL = `https://fakestoreapi.com/products/${id}`;
 
-      try {
-        const res = await fetch(URL);
-        const data = await res.json();
-        setProduct(data);
-      } catch (err) {
-        console.error('Error fetching product:', err);
-      } finally {
-        setIsLoading(false);
-      }
+      fetch(URL)
+        .then((res) => res.json())
+        .then((json) => setProduct(json))
+        .finally(() => setIsLoading(false));
+
     };
 
     getProduct();
