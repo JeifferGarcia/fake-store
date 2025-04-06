@@ -16,7 +16,7 @@ import Detail from './page/Detail';
 function App() {
 
   return (
-  <BrowserRouter>
+  <BrowserRouter basename="/fake-store">
     <DiscountProvider>
       <Navbar />
       <Routes>
