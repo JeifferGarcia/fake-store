@@ -45,7 +45,7 @@ function Detail() {
           </div>
 
           <div className="col-12 col-lg-6">
-            <h1>{product.title}</h1>
+            <h1 className="text-warning">{product.title}</h1>
             <div className="mt-5">
               <h4 className={`${discount ? 'line text-danger': ''}`}>${product.price}</h4>
                 { discount && (

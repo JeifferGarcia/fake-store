@@ -16,7 +16,7 @@ function Card({ src, title, description, id, price, discount }) {
           }}
         />
         <div className="card-body">
-          <h5 className="card-title text-muted">{title}</h5>
+          <h5 className="card-title text-muted ">{title}</h5>
           <h5 className={`card-subtitle my-2 ${discount ? 'line text-danger': ''}`}>${price}</h5>
           { discount && (
             <h5 className="card-subtitle my-2">${discount}</h5>
