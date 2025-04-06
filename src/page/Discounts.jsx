@@ -1,7 +1,7 @@
 import { useDiscounts,  } from "../context/DiscountsContext";
 
 function Discounts() {
-  const { setDiscounts, discounts } = useDiscounts();
+  const { setDiscounts, discount } = useDiscounts();
   const valueDiscounts = [
     { text: '5%', value: 5 },
     { text: '10%', value: 10 },
@@ -12,11 +12,11 @@ function Discounts() {
 
   const handleChange = ((event) => {
     const { value } = event.target;
-    const discount = !Number.isNaN(parseInt(value, 10))
+    const currentDiscount = !Number.isNaN(parseInt(value, 10))
       ? parseInt(value, 10)
       : null;
 
-    setDiscounts(discount);
+    setDiscounts(currentDiscount);
   })
 
   return (
@@ -28,10 +28,10 @@ function Discounts() {
 
             <div className="input-group mb-3">
               <select
-                value={discounts ?? ""}
+                defaultValue={discount ?? ""}
                 onChange={handleChange}
               >
-                <option>Seleccionar un cupón de descuento</option>
+                <option> Seleccionar un cupón de descuento</option>
                 { valueDiscounts.map((discount) => (
                   <option key={discount.value} value={discount.value}>{discount.text}</option>
                 ))}
