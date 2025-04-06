@@ -7,6 +7,7 @@ import {
 import Home from './page/Home';
 import Products from './page/Products';
 import Discounts from './page/Discounts';
+import Detail from './page/Detail';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/products" element={<Products />}/>
+        <Route path="/products/:id" element={<Detail />}/>
         <Route path="/discounts" element={<Discounts />}/>
       </Routes>
     </BrowserRouter>

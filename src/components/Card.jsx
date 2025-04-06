@@ -1,11 +1,11 @@
-import React from 'react';
+import { Link } from "react-router-dom";
 
 function Card({ src, title, description, id, price }) {
 
   const setDescription = (text) => `${text.substr(0, 155)}...`
   return (
     <>
-      <div key={id} className="card h-100">
+      <div className="card h-100">
         <img
           src={src}
           className="card-img-top img-fluid p-3"
@@ -20,7 +20,7 @@ function Card({ src, title, description, id, price }) {
           <h5 className="card-subtitle my-2 ">${price}</h5>
           <p className="card-text">{setDescription(description)}</p>
           <div className="text-center">
-            <a href="#" className="btn btn-dark">Mas Información</a>
+            <Link to={`/products/${id}`} className="btn btn-dark">Mas Información</Link>
           </div>
         </div>
       </div>
