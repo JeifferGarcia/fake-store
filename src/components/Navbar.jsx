@@ -1,44 +1,29 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Navbar
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+          <ul className="navbar-nav d-flex flex-row justify-content-center w-100">
+            <li className="nav-item mx-2">
+              <Link className="btn" to="/">
+                Inicio
+              </Link>
+            </li>
 
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link " aria-current="page" href="#">
-                  Inicio
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Descuentos
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Productos
-                </a>
-              </li>
-            </ul>
-          </div>
+            <li className="nav-item mx-2">
+              <Link className="btn" to="/products">
+                Productos
+              </Link>
+            </li>
+
+            <li className="nav-item mx-2">
+              <Link className="btn" to="/discounts">
+                Descuentos
+              </Link>
+            </li>
+          </ul>
         </div>
       </nav>
     </>

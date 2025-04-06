@@ -1,8 +1,8 @@
-import { useDiscounts } from "../context/DiscountsContext";
+import { useDiscounts,  } from "../context/DiscountsContext";
 
 function Discounts() {
-  const { setDiscounts } = useDiscounts();
-  const discounts = [
+  const { setDiscounts, discounts } = useDiscounts();
+  const valueDiscounts = [
     { text: '5%', value: 5 },
     { text: '10%', value: 10 },
     { text: '15%', value: 15 },
@@ -27,10 +27,13 @@ function Discounts() {
             <h2>Descuentos</h2>
 
             <div className="input-group mb-3">
-              <select onChange={handleChange}>
-                <option selected>Seleccionar un cupón de descuento</option>
-                { discounts.map((discount) => (
-                  <option value={discount.value}>{discount.text}</option>
+              <select
+                value={discounts ?? ""}
+                onChange={handleChange}
+              >
+                <option>Seleccionar un cupón de descuento</option>
+                { valueDiscounts.map((discount) => (
+                  <option key={discount.value} value={discount.value}>{discount.text}</option>
                 ))}
               </select>
             </div>

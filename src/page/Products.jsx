@@ -4,7 +4,7 @@ import Card from '../components/Card';
 
 function Products() {
   const [products, setProducts] = useState([]);
-  const { discounts } = useDiscounts();
+  const { setDiscount } = useDiscounts();
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -12,12 +12,7 @@ function Products() {
       .then((json) => setProducts(json));
   }, []);
 
-  const setDiscounts = (price) => {
-    if (!discounts) return null;
 
-    const discountAmount = price * (discounts / 100);
-    return +(price - discountAmount).toFixed(2);
-  }
 
   return (
     <div className="container mt-4">
@@ -30,7 +25,7 @@ function Products() {
             <Card
               key={product.id}
               id={product.id}
-              discount={setDiscounts(product.price)}
+              discount={setDiscount(product.price)}
               price={product.price}
               title={product.title}
               src={product.image}

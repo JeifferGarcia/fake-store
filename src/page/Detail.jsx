@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
+import { useDiscounts } from '../context/DiscountsContext';
 
 function Detail() {
   const [product, setProduct] = useState({});
   const { id } = useParams();
+  const { discount, setDiscount } = useDiscounts();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -37,7 +39,10 @@ function Detail() {
 
           <div className="col-12 col-lg-6">
             <h1>{product.title}</h1>
-            <h4>${product.price}</h4>
+            <h4 className={`${discount ? 'line text-danger': ''}`}>${product.price}</h4>
+          { discount && (
+            <h4>${setDiscount(product.price)}</h4>
+          )}
             <hr />
             <p>{product.description}</p>
           </div>
