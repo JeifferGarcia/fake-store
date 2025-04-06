@@ -28,6 +28,7 @@ function Discounts() {
 
             <div className="input-group mb-3">
               <select
+                className="p-2"
                 defaultValue={discount ?? ""}
                 onChange={handleChange}
               >

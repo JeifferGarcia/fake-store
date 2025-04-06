@@ -28,39 +28,38 @@ function Detail() {
 
   return (
     <>
-      <div className="container">
-        <div className="row d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-          <div className="col-12 col-lg-6">
-            <div className="card">
-              <img
-                className="card-img-top img-fluid p-4"
-                src={product.image}
-                alt={product.title}
-                style={{
-                  height: '40rem',
-                  objectFit: 'contain'
-                }}
-              />
-            </div>
-          </div>
+      <div className="container my-5">
+            <div className="row align-items-center shadow p-4 rounded bg-light">
+              <div className="col-md-6 text-center">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="img-fluid"
+                  style={{ maxHeight: '400px', objectFit: 'contain' }}
+                />
+              </div>
 
-          <div className="col-12 col-lg-6">
-            <h1 className="text-warning">{product.title}</h1>
-            <div className="mt-5">
-              <h4 className={`${discount ? 'line text-danger': ''}`}>${product.price}</h4>
+              <div className="col-md-6 mt-4 mt-md-0">
+                <h3 className="fw-bold">{product.title}</h3>
+                <p className="text-muted" style={{ maxHeight: '150px', overflow: 'auto' }}>
+                  {product.description}
+                </p>
+
+                <p className="text-end">Calificación {product.rating.rate}</p>
+                <p className="text-end">{product.rating.count} review</p>
+
+                <h4 className={`${discount ? 'line text-danger': 'text-success'} fw-semibold mt-3`}> ${product.price}</h4>
                 { discount && (
-                  <h4>${setDiscount(product.price)} <strong className="text-success">{discount}% descuento</strong></h4>
+                  <h4 className='text-success fw-semibold mt-3'>$ {setDiscount(product.price)} <strong className="text-success fw-semibold">{discount}% descuento</strong></h4>
                 )}
-            </div>
-            <hr />
-            <p >{product.description}</p>
-            <hr />
-            <div>
-              <a className="btn btn-primary">Comprar</a>
+                <hr />
+
+                <div>
+                  <a className="btn btn-primary">Comprar</a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
     </>
   )
 }

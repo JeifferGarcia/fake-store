@@ -23,7 +23,7 @@ function Card({ src, title, description, id, price, discount }) {
           )}
           <p className="card-text">{setDescription(description)}</p>
           <div className="text-center">
-            <Link to={`/products/${id}`} className="btn btn-dark">Mas Información</Link>
+            <Link to={`/products/${id}`} className="btn btn-dark">Ver más</Link>
           </div>
         </div>
       </div>
