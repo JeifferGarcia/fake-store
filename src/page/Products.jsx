@@ -1,18 +1,23 @@
 import { useEffect, useState } from 'react';
 import { useDiscounts } from '../context/DiscountsContext';
 import Card from '../components/Card';
+import Loading from '../components/Loading';
 
 function Products() {
+  const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const { setDiscount } = useDiscounts();
 
   useEffect(() => {
+    setIsLoading(true);
     fetch('https://fakestoreapi.com/products')
       .then((res) => res.json())
-      .then((json) => setProducts(json));
+      .then((json) => setProducts(json))
+      .finally(() => setIsLoading(false));
   }, []);
 
 
+  if (isLoading) return <Loading />
 
   return (
     <div className="container mt-4">
